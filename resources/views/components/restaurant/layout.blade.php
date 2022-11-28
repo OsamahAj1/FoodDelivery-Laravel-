@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    @auth
         <nav class="navbar navbar-expand-lg navbar-light b">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('restaurant.index') }}">Food Delivery</a>
@@ -31,7 +30,6 @@
                 </div>
             </div>
         </nav>
-    @endauth
     <div>
         {{ $slot }}
     </div>
