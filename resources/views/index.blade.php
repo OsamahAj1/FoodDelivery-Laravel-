@@ -12,9 +12,9 @@
             <x-carousel.indicators />
 
             <div class="carousel-inner">
-                <x-carousel.item class="active fw-bolder" :image="asset('storage/index_images/image1.jpg')"/>
-                <x-carousel.item :image="asset('storage/index_images/image2.jpg')"/>
-                <x-carousel.item :image="asset('storage/index_images/image3.png')"/>
+                <x-carousel.item class="active fw-bolder" :image="asset('index_images/image1.jpg')"/>
+                <x-carousel.item :image="asset('index_images/image2.jpg')"/>
+                <x-carousel.item :image="asset('index_images/image3.png')"/>
             </div>
 
             <x-carousel.buttons />
