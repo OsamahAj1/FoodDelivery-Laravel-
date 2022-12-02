@@ -18,7 +18,7 @@ export default defineConfig({
                 'resources/js/app.js',
 
                 // javascript
-                'resources/js/ClientApp.js',
+                'resources/js/client/App.js',
                 'resources/js/DeliveryApp.js',
                 'resources/js/RestaurantApp.js',
 
