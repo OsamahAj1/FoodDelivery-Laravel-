@@ -12,7 +12,10 @@
         </div>
 
         <div id="app" class="row row-cols-lg-2 row-cols-sm-1">
-            <restaurant-foods :foods="{{ json_encode($restaurant->foods) }}"></restaurant-foods>
+            <restaurant-foods
+            :foods="{{ json_encode($restaurant->foods) }}"
+            :url="'{{ asset('storage') }}'">
+            </restaurant-foods>
         </div>
     </div>
 </x-client.layout>

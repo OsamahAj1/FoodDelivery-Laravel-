@@ -1,4 +1,4 @@
-// import '../bootstrap';
+import '../bootstrap';
 import { createApp } from 'vue';
 import Foods from './RestaurantView/components/Foods.vue'
 
@@ -33,29 +33,29 @@ app.mount('#app');
 //                 return;
 //             }
 
-//             // post request to api to add item to cart
-//             let response;
-//             try {
-//                 response = await window.axios.post(`/api/cart/add/${food_id}/${n}`);
-//             } catch (error) {
-//                 // if there is error display it
+            // // post request to api to add item to cart
+            // let response;
+            // try {
+            //     response = await window.axios.post(`/api/cart/add/${food_id}/${n}`);
+            // } catch (error) {
+            //     // if there is error display it
 
-//                 if (error.response.status == 404) {
-//                     message.innerHTML = 'Number must be bigger than 0';
-//                     message.className = "text-danger";
-//                 } else {
-//                     message.innerHTML = error.response.data.error;
-//                     message.className = "text-danger";
-//                 }
-//                 return;
-//             }
+            //     if (error.response.status == 404) {
+            //         message.innerHTML = 'Number must be bigger than 0';
+            //         message.className = "text-danger";
+            //     } else {
+            //         message.innerHTML = error.response.data.error;
+            //         message.className = "text-danger";
+            //     }
+            //     return;
+            // }
 
-//             // update cart number
-//             cart.innerHTML = parseInt(cart.innerHTML) + parseInt(n);
+            // // update cart number
+            // cart.innerHTML = parseInt(cart.innerHTML) + parseInt(n);
 
-//             // show success message
-//             message.innerHTML = response.data.success;
-//             message.className = "text-success";
+            // // show success message
+            // message.innerHTML = response.data.success;
+            // message.className = "text-success";
 
 //         }
 //     });
