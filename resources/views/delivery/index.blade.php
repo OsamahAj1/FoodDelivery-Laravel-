@@ -19,7 +19,7 @@
 
         <input type="hidden" value="{{ auth()->user()->id }}" id="del-id">
         <input type="hidden" value="{{ auth()->user()->name }}" id="del-name">
-        <input type="hidden" value="{{ asset('storage/' . auth()->user()->image) }}" id="del-img">
+        <input type="hidden" value="{{ auth()->user()->image }}" id="del-img">
         <input type="hidden" value="{{ auth()->user()->car }}" id="del-car">
         <input type="hidden" value="{{ auth()->user()->number }}" id="del-number">
     </div>

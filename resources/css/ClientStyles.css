@@ -73,12 +73,11 @@
 }
 
 #order-status-wait {
-    display: none;
     animation: infinite;
     animation-name: wait;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
 }
 
 .row {

@@ -13,7 +13,9 @@ class OrderController extends Controller
     public function show()
     {
         return view('client.order', [
-            'order' => Order::where('client_id', auth()->user()->id)->with('client', 'restaurant')->first(),
+            'order' => Order::where('client_id', auth()->user()->id)
+                        ->with('client', 'restaurant', 'delivery')
+                        ->first(),
         ]);
     }
 
@@ -34,7 +36,7 @@ class OrderController extends Controller
             ->select('number', 'food_id')
             ->with('food:id,name')
             ->get()
-            ->map(fn($food) => $food->number . ' ' . $food->food->name)
+            ->map(fn ($food) => $food->number . ' ' . $food->food->name)
             ->join(' - ');
 
         $restaurant_id = $cart->food->restaurant_id;
@@ -56,7 +58,7 @@ class OrderController extends Controller
     {
         $order = Order::where('client_id', auth()->user()->id)->first();
 
-        if (! $order) {
+        if (!$order) {
             return back()->with('message', 'no order to cancel');
         }
 
@@ -71,7 +73,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        return view('client.oldOrders' , [
+        return view('client.oldOrders', [
             'orders' => OldOrder::latest()->with('restaurant', 'delivery')->paginate()
         ]);
     }
