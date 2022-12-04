@@ -9,9 +9,10 @@ let props = defineProps({
 let currentNumber = ref(1);
 let message = ref('');
 let error = false;
-let cart = document.querySelector('#cart');
+let sum_cart = document.querySelector('#cart');
 
 async function add() {
+
     // check for errors
     if (currentNumber.value == '' || currentNumber.value <= 0) {
         message.value = 'Number must be bigger than 0';
@@ -37,7 +38,7 @@ async function add() {
     }
 
     // update cart number
-    cart.innerHTML = parseInt(cart.innerHTML) + parseInt(currentNumber.value);
+    sum_cart.innerHTML = parseInt(cart.innerHTML) + parseInt(currentNumber.value);
 
     // show success message
     message.value = response.data.success;

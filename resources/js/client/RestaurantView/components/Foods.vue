@@ -1,16 +1,16 @@
 <script setup>
 import { defineProps } from 'vue';
-import Food from './Food.vue'
+import food from './Food.vue'
 
 let props = defineProps({
-    foods: Object,
+    foods: Array,
     url: String
 });
 
 </script>
 
 <template>
-    <Food v-show="foods.length"
+    <food v-show="foods.length"
     v-for="food in foods"
     :key="food.id"
     :food="food"

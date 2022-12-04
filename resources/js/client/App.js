@@ -1,122 +1,15 @@
 import '../bootstrap';
 import { createApp } from 'vue';
 import Foods from './RestaurantView/components/Foods.vue'
+import Cart from './CartView/components/Cart.vue'
 
 const app = createApp({});
 
 app
-    .component('restaurant-foods', Foods);
+    .component('restaurant-foods', Foods)
+    .component('cart', Cart);
 
 app.mount('#app');
-
-
-
-// // Add to cart
-// const add_button = document.querySelectorAll(".add-button")
-// if (add_button) {
-
-//     // listen for clicking on add to cart button
-//     add_button.forEach(button => {
-
-//         // when button is clicked
-//         button.onclick = async () => {
-
-//             // get number and food_id and message field
-//             const n = button.nextElementSibling.value;
-//             const food_id = button.previousElementSibling.value;
-//             const message = button.nextElementSibling.nextElementSibling;
-
-//             // check for errors
-//             if (parseInt(food_id) <= 0 || parseInt(n) <= 0 || n == '' || food_id == '') {
-//                 message.innerHTML = 'Number must be bigger than 0';
-//                 message.className = "text-danger";
-//                 return;
-//             }
-
-            // // post request to api to add item to cart
-            // let response;
-            // try {
-            //     response = await window.axios.post(`/api/cart/add/${food_id}/${n}`);
-            // } catch (error) {
-            //     // if there is error display it
-
-            //     if (error.response.status == 404) {
-            //         message.innerHTML = 'Number must be bigger than 0';
-            //         message.className = "text-danger";
-            //     } else {
-            //         message.innerHTML = error.response.data.error;
-            //         message.className = "text-danger";
-            //     }
-            //     return;
-            // }
-
-            // // update cart number
-            // cart.innerHTML = parseInt(cart.innerHTML) + parseInt(n);
-
-            // // show success message
-            // message.innerHTML = response.data.success;
-            // message.className = "text-success";
-
-//         }
-//     });
-// }
-
-
-// // Update cart
-
-// const update_input = document.querySelectorAll('.update-number-input');
-// if (update_input) {
-
-//     // listen for changing number
-//     update_input.forEach(input => {
-
-//         // when input is changed
-//         input.addEventListener('input', async () => {
-
-//             // get info
-//             const cart_id = input.previousElementSibling.value;
-//             const message = input.nextElementSibling;
-//             const sum_price = document.querySelector(`#sum-price-${cart_id}`);
-//             const sum_cart = document.querySelector('#sum-price-cart');
-//             const cart = document.querySelector('#cart');
-
-//             // check for errors
-//             if (input.value == '' || cart_id == '' || parseInt(input.value) <= 0 || parseInt(cart_id) <= 0) {
-//                 message.innerHTML = 'Number must be bigger than 0';
-//                 message.className = "text-danger";
-//                 return;
-//             }
-
-//             // post request to api to update n
-//             let response;
-//             try {
-//                 response = await window.axios.post(`/api/cart/update/${cart_id}/${input.value}`);
-//             } catch (error) {
-//                 // if there is error display it
-
-//                 if (error.response.status == 404) {
-//                     message.innerHTML = 'Number must be bigger than 0';
-//                     message.className = "text-danger";
-//                 } else {
-//                     message.innerHTML = error.response.data.error;
-//                     message.className = "text-danger";
-//                 }
-//                 return;
-//             }
-
-//             // remove error message
-//             message.innerHTML = "";
-//             message.className = "";
-
-//             // update sum price and sum cart and cart count
-//             sum_price.innerHTML = `$${response.data.sum_price}`;
-//             sum_cart.innerHTML = `$${response.data.sum_cart}`;
-//             cart.innerHTML = response.data.cart_count;
-
-//         });
-//     });
-// }
-
 
 // // Remove from cart
 
@@ -143,46 +36,46 @@ app.mount('#app');
 //                 return;
 //             }
 
-//             // post request to API to delete cart item
-//             let response;
-//             try {
-//                 response = await window.axios.post(`/api/cart/destroy/${cart_id}`);
-//             } catch (error) {
-//                 // if there is error display it
+            // // post request to API to delete cart item
+            // let response;
+            // try {
+            //     response = await window.axios.post(`/api/cart/destroy/${cart_id}`);
+            // } catch (error) {
+            //     // if there is error display it
 
-//                 if (error.response.status == 404) {
-//                     message.innerHTML = 'Error removing item';
-//                     message.className = "text-danger";
-//                 } else {
-//                     message.innerHTML = error.response.data.error;
-//                     message.className = "text-danger";
-//                 }
-//                 return;
-//             }
+            //     if (error.response.status == 404) {
+            //         message.innerHTML = 'Error removing item';
+            //         message.className = "text-danger";
+            //     } else {
+            //         message.innerHTML = error.response.data.error;
+            //         message.className = "text-danger";
+            //     }
+            //     return;
+            // }
 
 //             // remove error message
 //             message.innerHTML = "";
 //             message.className = "";
 
-//             // play remove animation
-//             cart_item.style.animationPlayState = 'running';
+            // // play remove animation
+            // cart_item.style.animationPlayState = 'running';
 
-//             // when animation played
-//             cart_item.addEventListener('animationend', () => {
+            // // when animation played
+            // cart_item.addEventListener('animationend', () => {
 
-//                 // remove cart_item
-//                 cart_item.remove();
+            //     // remove cart_item
+            //     cart_item.remove();
 
-//                 // update sum_cart and cart count
-//                 sum_cart.innerHTML = `$${response.data.sum_cart}`;
-//                 cart.innerHTML = response.data.cart_count;
+            //     // update sum_cart and cart count
+            //     sum_cart.innerHTML = `$${response.data.sum_cart}`;
+            //     cart.innerHTML = response.data.cart_count;
 
-//                 // if response is 0 hide place order div and show empty message
-//                 if (response.data.sum_cart < 1) {
-//                     document.querySelector('#place-order').style.display = "none";
-//                     document.querySelector('#empty').innerHTML = `<h3 class="text-center text-info">Cart is empty go to <a href="/home">home page</a> to add items.</h3>`
-//                 }
-//             });
+            //     // if response is 0 hide place order div and show empty message
+            //     if (response.data.sum_cart < 1) {
+            //         document.querySelector('#place-order').style.display = "none";
+            //         document.querySelector('#empty').innerHTML = `<h3 class="text-center text-info">Cart is empty go to <a href="/home">home page</a> to add items.</h3>`
+            //     }
+            // });
 //         }
 //     });
 // }
