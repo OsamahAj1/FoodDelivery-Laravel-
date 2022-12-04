@@ -19,7 +19,7 @@ export default defineConfig({
 
                 // javascript
                 'resources/js/client/App.js',
-                'resources/js/DeliveryApp.js',
+                'resources/js/delivery/App.js',
                 'resources/js/RestaurantApp.js',
 
                 // styles

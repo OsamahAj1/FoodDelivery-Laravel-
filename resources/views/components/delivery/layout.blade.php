@@ -4,7 +4,7 @@
 <head>
     <title>{{ $title }}</title>
     <x-bootstrap.css />
-    @vite(['resources/js/DeliveryApp.js', 'resources/css/DeliveryStyles.css'])
+    @vite(['resources/js/delivery/App.js', 'resources/css/DeliveryStyles.css'])
 </head>
 
 <body>

@@ -5,12 +5,16 @@
 
     <x-flash type='message'/>
 
-    <div class="row">
-        <p class="text-center fs-3 mt-5" id="orders-wait">Searching for orders</p>
+    <div id="app" class="container mt-5">
+        <orders
+        :orders="{{ json_encode($orders) }}"
+        :url="'{{ asset('storage') }}'"
+        :delivery="{{ json_encode(auth()->user()) }}"
+        />
     </div>
 
 
-    <p id='error' class="text-center text-danger"></p>
+    {{-- <p id='error' class="text-center text-danger"></p>
     <div class="container mt-5" id="orders">
 
         @if ($orders->count())
@@ -22,5 +26,5 @@
         <input type="hidden" value="{{ auth()->user()->image }}" id="del-img">
         <input type="hidden" value="{{ auth()->user()->car }}" id="del-car">
         <input type="hidden" value="{{ auth()->user()->number }}" id="del-number">
-    </div>
+    </div> --}}
 </x-delivery.layout>
