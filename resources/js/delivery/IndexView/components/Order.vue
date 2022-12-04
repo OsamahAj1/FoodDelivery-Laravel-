@@ -39,7 +39,7 @@ async function accept() {
         'order_id': parseInt(props.order.id),
         'del_name': props.delivery.name,
         'order_order': props.order.order,
-        'sum_order': `$${props.order.sum_order}`,
+        'sum_order': props.order.sum_order,
     };
 
     response = await window.axios.post('/api/sendToRestaurant', { data: JSON.stringify(restaurant_data) });

@@ -41,12 +41,12 @@ function remove(id, sum) {
             @remove="remove"
             />
 
-            <form class="text-center mb-5 p-4" :action="placeRoute" method="post">
+            <form class="text-center p-4" :action="placeRoute" method="post">
                 <input type="hidden" name="_token" :value="csrf" />
                 <input type="submit" class="btn btn-outline-primary btn-lg" value="Preview Order">
             </form>
 
-        <h3 class="text-center mt-5">${{ sum_cart }}</h3>
+        <h3 class="text-center mt-5 pb-5">${{ sum_cart }}</h3>
     </div>
 
     <h3 v-else class="text-center text-info">Cart is empty go to <a :href="indexRoute">home page</a> to add items.</h3>
