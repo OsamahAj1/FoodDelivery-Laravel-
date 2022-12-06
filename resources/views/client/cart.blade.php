@@ -15,7 +15,7 @@
         :url="'{{ asset('storage') }}'"
         :csrf="'{{ csrf_token() }}'"
         />
-.
+
     </div>
 
 </x-client.layout>
