@@ -4,7 +4,7 @@
     </x-slot>
 
     <div id="app" class="container mt-5">
-        
+
         <x-flash type='message' />
 
         <cart
@@ -15,7 +15,7 @@
         :url="'{{ asset('storage') }}'"
         :csrf="'{{ csrf_token() }}'"
         />
-
+.
     </div>
 
 </x-client.layout>
