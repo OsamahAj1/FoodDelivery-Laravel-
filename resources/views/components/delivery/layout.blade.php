@@ -21,6 +21,7 @@
                         <a class="nav-link active" href="{{ route('delivery.order') }}">Order</a>
                         <a class="nav-link active" href="{{ route('delivery.oldOrders') }}">Old orders</a>
                         <x-user-name />
+                        <x-admin />
                         <x-form.logout logout='restaurant.logout' btn='b' />
                     @else
                         <x-home />

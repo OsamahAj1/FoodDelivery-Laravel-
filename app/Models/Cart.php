@@ -8,11 +8,17 @@ use Illuminate\Http\Response;
 
 class Cart extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     public function food()
     {
         return $this->belongsTo(Food::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(User::class, 'client_id');
     }
 
     public static function addToCart(Food $food, int $number): array

@@ -13,7 +13,7 @@
 
         <div id="app" class="row row-cols-lg-2 row-cols-sm-1">
             <restaurant-foods
-            :foods="{{ json_encode($restaurant->foods) }}"
+            :foods="{{ json_encode($restaurant->foods->where('is_active', true)) }}"
             :url="'{{ asset('storage') }}'"
             />
         </div>

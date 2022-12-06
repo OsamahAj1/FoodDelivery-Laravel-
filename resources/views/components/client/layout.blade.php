@@ -21,6 +21,7 @@
                         <a class="nav-link active" href="{{ route('client.order') }}">Live order</a>
                         <a class="nav-link active" href="{{ route('client.oldOrders') }}">Old orders</a>
                         <x-user-name />
+                        <x-admin />
                         <x-form.logout logout='client.logout' btn='btn btn-light'/>
                     @else
                         <x-home />

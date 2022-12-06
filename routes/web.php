@@ -66,9 +66,6 @@ Route::post('/restaurants/logout', [RestaurantSessionController::class, 'destroy
 Route::get('/restaurants', [RestaurantOrderController::class, 'index'])->name('restaurant.index')->middleware('restaurant');
 Route::get('/restaurants/order/old', [RestaurantOrderController::class, 'oldOrdersIndex'])->name('restaurant.oldOrders')->middleware('restaurant');
 
-Route::get('/restaurants/food', [FoodController::class, 'create'])->name('restaurant.food')->middleware('restaurant');
-Route::post('/restaurants/food', [FoodController::class, 'store'])->name('restaurant.food')->middleware('restaurant');
-
 
 // delivery
 Route::get('/delivery/register', [DeliveryRegisterController::class, 'create'])->name('delivery.register')->middleware('guest');

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('des');
             $table->decimal('price', 6);
             $table->timestamps();
+            $table->boolean('is_active')->default(true);
         });
     }
 

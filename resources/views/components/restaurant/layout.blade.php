@@ -19,8 +19,8 @@
                     <div class="navbar-nav">
                         @auth
                             <a class="nav-link active" aria-current="page" href="{{ route('restaurant.oldOrders') }}">Old Orders</a>
-                            <a class="nav-link active" href="{{ route('restaurant.food') }}">Add food</a>
                             <x-user-name />
+                            <x-admin />
                             <x-form.logout logout='restaurant.logout' btn='b' />
                         @else
                             <x-home />
