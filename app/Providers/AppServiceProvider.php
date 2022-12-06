@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Components\CartCount;
+use App\View\Components\CartCountTailwind;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
@@ -35,5 +36,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::component('client.cart.count', CartCount::class);
+        Blade::component('client.cart.count-tailwind', CartCountTailwind::class);
     }
 }
