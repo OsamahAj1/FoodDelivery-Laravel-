@@ -72,7 +72,7 @@ class UserCrudController extends CrudController
     {
         CRUD::setValidation([
             'name' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'email' => ['required', 'email', 'max:255'],
             'rule' => ['required', Rule::in(['client', 'delivery', 'restaurant'])],
             'password' => ['required', 'min:8', 'max:255'],
             'number' => ['nullable', 'regex:/^((?:[+?0?0?966]+)(?:\s?\d{2})(?:\s?\d{7}))$/'],
