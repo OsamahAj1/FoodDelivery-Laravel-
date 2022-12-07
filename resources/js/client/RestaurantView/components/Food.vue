@@ -8,7 +8,7 @@ let props = defineProps({
 
 let currentNumber = ref(1);
 let message = ref('');
-let error = false;
+let error = true;
 let sum_cart = document.querySelector('#cart');
 
 async function add() {
