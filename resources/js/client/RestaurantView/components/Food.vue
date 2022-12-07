@@ -16,6 +16,7 @@ async function add() {
     // check for errors
     if (currentNumber.value == '' || currentNumber.value <= 0) {
         message.value = 'Number must be bigger than 0';
+        error = true;
         return;
     }
 
@@ -28,10 +29,10 @@ async function add() {
 
         if (error.response.status == 404) {
             message.value = 'Number must be bigger than 0';
-
+            error = true;
         } else {
             message.value = error.response.data.error;
-
+            error = true;
         }
         return;
     }
