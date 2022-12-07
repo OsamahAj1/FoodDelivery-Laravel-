@@ -10,12 +10,17 @@ let props = defineProps({
 </script>
 
 <template>
-    <food v-show="foods.length"
-    v-for="food in foods"
-    :key="food.id"
-    :food="food"
-    :url="url"
-    />
+    <div
+    class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-14 justify-center justify-items-center p-5">
 
-    <p v-show="! foods.length" class="text-info text-center">No Foods</p>
+        <food v-show="foods.length"
+        v-for="food in foods"
+        :key="food.id"
+        :food="food"
+        :url="url"
+        />
+        
+    </div>
+
+    <p v-show="! foods.length" class="text-cyan-300 text-3xl">No Foods</p>
 </template>

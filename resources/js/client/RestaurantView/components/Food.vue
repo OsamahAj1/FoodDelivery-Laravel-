@@ -8,7 +8,7 @@ let props = defineProps({
 
 let currentNumber = ref(1);
 let message = ref('');
-let error = false;
+let error = true;
 let sum_cart = document.querySelector('#cart');
 
 async function add() {
@@ -16,7 +16,6 @@ async function add() {
     // check for errors
     if (currentNumber.value == '' || currentNumber.value <= 0) {
         message.value = 'Number must be bigger than 0';
-        error = true;
         return;
     }
 
@@ -29,10 +28,10 @@ async function add() {
 
         if (error.response.status == 404) {
             message.value = 'Number must be bigger than 0';
-            error = true;
+
         } else {
             message.value = error.response.data.error;
-            error = true;
+
         }
         return;
     }
@@ -48,13 +47,29 @@ async function add() {
 </script>
 
 <template>
-    <div class="col p-5">
-        <img :src="`${url}/${food.image}`" class="im-size mb-3 rounded mx-auto d-block">
-        <p class="fs-3">{{ food.name }}</p>
+    <div class="space-y-4">
+        <img :src="`${url}/${food.image}`" class="object-contain h-40 w-40">
+
+        <p class="text-xl">{{ food.name }}</p>
+
         <p>${{ food.price }}</p>
-        <p class="text-break mb-4">{{ food.des }}</p>
-        <input @click="add" type="button" class="add-button btn btn-primary me-3" value="Add to cart">
-        <input v-model="currentNumber" type="number" class="number-input btn text-center" min="1">
-        <p :class="error === true ? 'text-danger' : 'text-success'">{{ message }}</p>
+
+        <p class="leading-loose">{{ food.des }}</p>
+
+        <button
+            @click="add"
+            class="text-white bg-blue-600 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Add To
+            Cart</button>
+
+        <input
+            v-model="currentNumber"
+            type="number"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-16"
+            min="1" required>
+
+        <p :class="{
+            'text-red-500': error === true,
+            'text-green-500': error !== true
+            }">{{ message }}</p>
     </div>
 </template>
