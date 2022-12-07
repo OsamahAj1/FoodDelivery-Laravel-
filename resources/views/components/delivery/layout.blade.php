@@ -21,10 +21,10 @@
                         <a class="nav-link active" href="{{ route('delivery.order') }}">Order</a>
                         <a class="nav-link active" href="{{ route('delivery.oldOrders') }}">Old orders</a>
                         <x-user-name />
-                        <x-form.logout logout='restaurant.logout' btn='b' />
+                        <x-form.logout logout='delivery.logout' btn='b' />
                     @else
                         <x-home />
-                        <x-register-login login='restaurant.login' register='restaurant.register' />
+                        <x-register-login login='delivery.login' register='delivery.register' />
                     @endauth
                 </div>
             </div>

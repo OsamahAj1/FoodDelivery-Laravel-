@@ -10,8 +10,9 @@ const emit = defineEmits(['update', 'remove']);
 
 let currentNumber = ref(props.cart.number);
 let sum_price = ref(props.cart.sum_price);
-
 let message = ref('');
+let disabled = ref(false);
+
 let sum_cart = document.querySelector('#cart');
 
 async function update() {
@@ -47,6 +48,8 @@ async function update() {
 
 async function remove() {
 
+    disabled.value = true;
+
     // post request to API to delete cart item
     let response;
     try {
@@ -73,11 +76,38 @@ async function remove() {
 
 <template>
 
-    <div>
-        <p class="text-danger">{{ message }}</p>
+    <div :id="`cart-item-${cart.id}`" class="cart-item grid grid-cols-6 gap-x-14  justify-items-center">
+
+        <img :src="`${url}/${cart.food.image}`" class="object-contain h-40 w-40">
+
+        <div class="mt-12">{{ cart.food.name }}</div>
+
+        <div class="mt-12">{{ cart.food.price }}</div>
+
+        <div class="mt-12">${{ sum_price }}</div>
+
+        <div class="mt-12">
+            <input
+            v-model="currentNumber"
+            @input="update"
+            type="number"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg text-sm text-center px-2 py-2.5 mr-2 mb-2 w-16"
+            min="1" required>
+        </div>
+
+        <div class="mt-12">
+            <button
+            @click="remove"
+            class="text-white bg-red-600 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 disabled:cursor-not-allowed"
+            :disabled="disabled"
+            >Remove</button>
+        </div>
+
     </div>
 
-    <div :id="`cart-item-${cart.id}`" class="cart-item row mb-4">
+    <p class="text-red-500">{{ message }}</p>
+
+    <!-- <div :id="`cart-item-${cart.id}`" class="cart-item row mb-4">
 
         <div class="col col-lg-2 col-sm-auto col-xs-auto">
             <img :src="`${url}/${cart.food.image}`" class="im-size">
@@ -109,6 +139,6 @@ async function remove() {
                 <input @click="remove" type="button" class="remove-button btn btn-danger" value="Remove">
             </div>
         </div>
-    </div>
+    </div> -->
 
 </template>

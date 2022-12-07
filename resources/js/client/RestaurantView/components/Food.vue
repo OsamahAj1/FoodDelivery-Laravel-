@@ -65,7 +65,7 @@ async function add() {
         <input
             v-model="currentNumber"
             type="number"
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-16"
+            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg text-sm text-center px-2 py-2.5 mr-2 mb-2 w-16"
             min="1" required>
 
         <p :class="{

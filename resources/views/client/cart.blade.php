@@ -1,11 +1,11 @@
-<x-client.layout>
+<x-client.layout-tailwind>
     <x-slot name='title'>
         Cart
     </x-slot>
 
-    <div id="app" class="container mt-5">
+    <x-flash type='message' />
 
-        <x-flash type='message' />
+    <div id="app">
 
         <cart
         :carts="{{ json_encode($carts) }}"
@@ -18,4 +18,4 @@
 
     </div>
 
-</x-client.layout>
+</x-client.layout-tailwind>

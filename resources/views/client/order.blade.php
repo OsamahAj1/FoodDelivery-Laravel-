@@ -1,4 +1,4 @@
-<x-client.layout>
+<x-client.layout-tailwind>
     <x-slot name='title'>
         Live Order
     </x-slot>
@@ -16,4 +16,4 @@
         />
 
     </div>
-</x-client.layout>
+</x-client.layout-tailwind>

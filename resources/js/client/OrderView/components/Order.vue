@@ -31,8 +31,10 @@ let props = defineProps({
 
     </div>
 
-    <h3 v-else class="text-center text-info mt-5">
-        No live order go to <a :href="indexRoute">home page</a> to order.
+    <h3 v-else class="text-center text-4xl text-sky-400 mt-10">
+        No live order go to
+        <a class="underline text-blue-700 hover:text-blue-500" :href="indexRoute">home page</a>
+        to order.
     </h3>
 
 </template>

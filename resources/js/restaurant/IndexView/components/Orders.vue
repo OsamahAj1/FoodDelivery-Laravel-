@@ -29,7 +29,7 @@ restaurantChannel.listen('.restaurantOrders', (data) => {
 
 <template>
 
-    <p class="text-center fs-3 mb-4" id="orders-wait">Searching for orders</p>
+    <p class="text-center text-3xl mt-4" id="orders-wait">Searching for orders</p>
 
     <order
     v-show="ordersList.length"

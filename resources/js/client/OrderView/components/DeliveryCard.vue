@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, ref } from 'vue';
-import CancelOrderForm from './CancelOrderForm.vue'
+import CancelOrderForm from './CancelOrderForm.vue';
 
 let props = defineProps({
     order: Object,
@@ -60,50 +60,43 @@ function listenForAccept() {
 
     <p
     v-if="(orderInfo.is_sent == true && ! orderInfo.delivery)"
-    class="text-center fs-3 mt-4"
+    class="text-center text-3xl mt-4"
     id="order-status-wait"
     >Please wait finding delivery person</p>
 
-    <div v-if="orderInfo.delivery" class="container mt-5">
+        <div v-if="orderInfo.delivery" class="grid grid-cols-1 gap-y-14  justify-items-center p-5">
 
-        <div class="row">
+            <div class="grid grid-cols-6 gap-x-14  justify-items-center">
+                <img :src="`${url}/${orderInfo.delivery.image}`"
+                    class="object-contain h-40 w-40">
 
-            <div class="col col-lg-3 col-sm-auto col-xs-auto">
-                <img :src="`${url}/${orderInfo.delivery.image}`" class="im-size">
+                <div class="mt-12">{{ orderInfo.delivery.name }}</div>
+
+                <div class="mt-12">{{ orderInfo.delivery.car }}</div>
+
+                <div class="mt-12">{{ orderInfo.delivery.number }}</div>
+
             </div>
 
-            <div class="col col-lg-3 col-sm-auto col-xs-auto">
-                <p>{{ orderInfo.delivery.name }}</p>
-            </div>
-
-            <div class="col col-lg-3 col-sm-auto col-xs-auto">
-                <p>{{ orderInfo.delivery.car }}</p>
-            </div>
-
-            <div class="col col-lg-3 col-sm-auto col-xs-auto">
-                <p>{{ orderInfo.delivery.number }}</p>
-            </div>
-
-            <div class="row">
-                <p class="text-info text-center fs-3">
-                    You gonna get call from delivery person when he get to your address.
-                </p>
-            </div>
+            <div class="text-sky-400 text-2xl">You gonna get call from delivery person when he get to your address.</div>
 
         </div>
-    </div>
 
-    <div v-if="(orderInfo.is_sent == false)" class="text-center mt-4">
-        <button
-        @click="send"
-        class="btn btn-success
-        ">Send Order</button>
-    </div>
+        <div class="grid grid-cols-1  justify-items-center p-5">
 
-    <cancel-order-form
-    v-if="(orderInfo.is_active == false)"
-    :csrf="csrf"
-    :destroy-order-route="destroyOrderRoute"
-    />
+            <div v-if="(orderInfo.is_sent == false)">
+                <button
+                @click="send"
+                class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                >Send Order</button>
+            </div>
+
+            <cancel-order-form
+            v-if="(orderInfo.is_active == false)"
+            :csrf="csrf"
+            :destroy-order-route="destroyOrderRoute"
+            />
+
+        </div>
 
 </template>

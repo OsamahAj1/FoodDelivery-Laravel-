@@ -1,4 +1,4 @@
-<x-delivery.layout>
+<x-delivery.layout-tailwind>
     <x-slot name='title'>
         Orders
     </x-slot>
@@ -12,4 +12,4 @@
         :delivery="{{ json_encode(auth()->user()) }}"
         />
     </div>
-</x-delivery.layout>
+</x-delivery.layout-tailwind>

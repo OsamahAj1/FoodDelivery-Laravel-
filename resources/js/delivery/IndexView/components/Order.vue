@@ -51,38 +51,35 @@ async function accept() {
 
 
 <template>
-    <div class="row order-row">
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <img class="im-size" :src="`${url}/${order.restaurant.image}`">
+
+    <div class="grid grid-cols-1 gap-y-14  justify-items-center p-5">
+
+        <div class="grid grid-cols-6 gap-x-14  justify-items-center">
+            <img :src="`${url}/${order.restaurant.image}`" class="object-contain h-40 w-40">
+
+            <div class="mt-12">{{ order.restaurant.name }}</div>
+
+            <div class="mt-12">
+                From <p>{{ order.restaurant.address }}</p>
+                To <p>{{ order.client.address }}</p>
+            </div>
+
+            <div class="mt-12">{{ order.order }}</div>
+
+            <div class="mt-12">${{ order.sum_order }}</div>
+
+            <div class="mt-12">
+                <button
+                @click="accept"
+                :disabled="disabled"
+                class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                >Accept</button>
+            </div>
+
         </div>
 
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <p>{{ order.restaurant.name }}</p>
-        </div>
+        <p class="text-red-500">{{ message }}</p>
 
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <p class="text-break">
-                <span class="text-info">
-                FROM:
-                </span>{{ order.restaurant.address }}.
-                <span class="text-info">
-                TO:
-                </span> {{ order.client.address }}
-            </p>
-        </div>
-
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <p class="text-break">{{ order.order }}</p>
-        </div>
-
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <p>${{ order.sum_order }}</p>
-        </div>
-
-        <div class="col col-lg-2 col-sm-auto col-xs-auto">
-            <button @click="accept" type="submit" class="btn btn-success" :disabled="disabled">Accept</button>
-            <span class="text-danger ms-3 fs-3">{{ message }}</span>
-        </div>
     </div>
 
 </template>
