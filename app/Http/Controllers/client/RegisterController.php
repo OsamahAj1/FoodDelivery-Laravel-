@@ -25,12 +25,6 @@ class RegisterController extends Controller
             'image' => ['nullable' ,'image'],
         ]);
 
-        if (isset($attributes['image'])) {
-            $attributes['image'] = request()->file('image')->store('images');
-        } else {
-            unset($attributes['image']);
-        }
-
         $attributes['rule'] = 'client';
 
         $user = User::create($attributes);

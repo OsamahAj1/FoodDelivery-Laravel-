@@ -26,7 +26,6 @@ class RegisterController extends Controller
         ]);
 
         $attributes['rule'] = 'delivery';
-        $attributes['image'] = request()->file('image')->store('images');
 
         $user = User::create($attributes);
 
